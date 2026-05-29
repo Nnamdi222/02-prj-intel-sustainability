@@ -15,189 +15,365 @@
 
   <style>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    body {
-      font-family: "Inter", sans-serif;
-      background: radial-gradient(circle at top, #0b1220, #05070d);
-      color: white;
-      overflow-x: hidden;
+    html{
+      scroll-behavior:smooth;
     }
 
-    html {
-      scroll-behavior: smooth;
+    body{
+      font-family:"Inter",sans-serif;
+      background:
+        radial-gradient(circle at top,#11203f 0%,#05070d 70%);
+      color:white;
+      overflow-x:hidden;
     }
 
-    section {
-      padding: 60px 8%;
+    section{
+      padding:80px 8%;
+    }
+
+    h2{
+      font-size:2.2rem;
+      margin-bottom:14px;
+    }
+
+    p{
+      line-height:1.7;
     }
 
     /* ================= NAVBAR ================= */
 
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
+    .navbar{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:1000;
 
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
 
-      padding: 14px 8%;
+      padding:14px 8%;
 
-      background: rgba(10, 15, 25, 0.6);
-      backdrop-filter: blur(18px);
+      background:rgba(8,12,22,0.75);
+      backdrop-filter:blur(18px);
 
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom:1px solid rgba(255,255,255,0.08);
     }
 
-    .nav-logo img {
-      width: 95px; /* ✅ FIXED: visible but not huge */
-      height: auto;
-      display: block;
-      object-fit: contain;
+    .nav-logo img{
+      width:95px;
+      display:block;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      list-style: none;
+    .nav-links{
+      display:flex;
+      gap:30px;
+      list-style:none;
     }
 
-    .nav-links a {
-      color: rgba(255,255,255,0.8);
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
+    .nav-links a{
+      color:rgba(255,255,255,0.8);
+      text-decoration:none;
+      font-weight:500;
+      transition:0.3s ease;
     }
 
-    .nav-links a:hover {
-      color: white;
-      text-shadow: 0 0 10px rgba(100,180,255,0.6);
+    .nav-links a:hover{
+      color:#7fd4ff;
     }
 
     /* ================= HERO ================= */
 
-    .hero {
-      height: 85vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+    .hero{
+      min-height:90vh;
 
-      padding-top: 90px;
-      background: radial-gradient(circle at center, #101a33, #05070d);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+
+      padding-top:100px;
+
+      background:
+        linear-gradient(rgba(5,7,13,0.45),rgba(5,7,13,0.8)),
+        url("img/2024-ai.jpg") center/cover no-repeat;
     }
 
-    .hero-content {
-      max-width: 750px;
+    .hero-content{
+      max-width:760px;
     }
 
-    .hero-logo {
-      width: 120px;
-      margin-bottom: 12px;
+    .hero-logo{
+      width:130px;
+      margin-bottom:20px;
     }
 
-    .hero h1 {
-      font-size: 2.6rem;
-      margin-bottom: 10px;
+    .hero h1{
+      font-size:3.5rem;
+      margin-bottom:18px;
     }
 
-    .hero p {
-      opacity: 0.75;
-      margin-bottom: 18px;
-      line-height: 1.6;
+    .hero p{
+      opacity:0.82;
+      margin-bottom:24px;
+      font-size:1.05rem;
     }
 
-    .hero-btn {
-      padding: 12px 22px;
-      background: linear-gradient(90deg, #2b7cff, #00c2ff);
-      border-radius: 10px;
-      text-decoration: none;
-      color: white;
-      font-weight: 600;
-      transition: 0.3s;
-      display: inline-block;
+    .hero-btn{
+      display:inline-block;
+
+      padding:14px 28px;
+
+      border-radius:12px;
+
+      background:linear-gradient(90deg,#2b7cff,#00c2ff);
+
+      color:white;
+      text-decoration:none;
+      font-weight:700;
+
+      transition:0.35s ease;
     }
 
-    .hero-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(0,180,255,0.4);
-    }
+    .hero-btn:hover{
+      transform:translateY(-4px) scale(1.03);
 
-    /* ================= TIMELINE (SCROLL SNAP REQUIRED) ================= */
-
-    .timeline {
-      display: flex;
-      gap: 20px;
-      overflow-x: auto;
-
-      scroll-snap-type: x mandatory; /* ✅ REQUIREMENT */
-      padding-bottom: 20px;
-    }
-
-    .card {
-      min-width: 280px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 16px;
-      overflow: hidden;
-
-      transition: transform 0.4s ease, box-shadow 0.4s ease; /* ✅ TRANSFORM REQUIREMENT */
-      scroll-snap-align: center; /* ✅ SNAP POINT */
-    }
-
-    /* ================= TRANSFORMS + HOVER EFFECTS ================= */
-
-    .card:hover {
-      transform: translateY(-12px) scale(1.04); /* ✅ CSS TRANSFORM */
       box-shadow:
-        0 0 25px rgba(0,180,255,0.25),
-        0 0 60px rgba(0,120,255,0.15);
+        0 0 25px rgba(0,180,255,0.35);
     }
 
-    .card img {
-      width: 100%;
-      height: 170px;
-      object-fit: cover;
-      filter: brightness(0.9);
+    /* ================= TIMELINE ================= */
+
+    .timeline-section{
+      position:relative;
     }
 
-    .card-content {
-      padding: 16px;
+    .timeline-subtext{
+      opacity:0.7;
+      margin-bottom:30px;
     }
 
-    .year {
-      color: #4db5ff;
-      font-weight: 700;
-      display: block;
-      margin-bottom: 6px;
+    .timeline{
+      display:grid;
+      grid-auto-flow:column;
+      grid-auto-columns:320px;
+
+      gap:26px;
+
+      overflow-x:auto;
+      overflow-y:hidden;
+
+      scroll-snap-type:x mandatory;
+
+      padding-bottom:20px;
+    }
+
+    .timeline::-webkit-scrollbar{
+      height:10px;
+    }
+
+    .timeline::-webkit-scrollbar-thumb{
+      background:#3d6cb3;
+      border-radius:20px;
+    }
+
+    .card{
+      position:relative;
+
+      height:470px;
+
+      border-radius:22px;
+
+      overflow:hidden;
+
+      scroll-snap-align:center;
+
+      cursor:pointer;
+
+      background:#111827;
+
+      transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
+    }
+
+    .card:hover{
+      transform:
+        translateY(-12px)
+        scale(1.03);
+
+      box-shadow:
+        0 0 30px rgba(0,170,255,0.25),
+        0 0 70px rgba(0,120,255,0.12);
+    }
+
+    .card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+
+      transition:0.5s ease;
+    }
+
+    .card:hover img{
+      transform:scale(1.08);
+      filter:brightness(0.5);
+    }
+
+    /* HOVER REVEAL */
+
+    .card-content{
+      position:absolute;
+      inset:0;
+
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+
+      padding:28px;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(0,0,0,0.95) 10%,
+          rgba(0,0,0,0.45) 45%,
+          transparent 100%
+        );
+
+      opacity:0;
+      transform:translateY(40px);
+
+      transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+    }
+
+    .card:hover .card-content{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .year{
+      color:#6fcfff;
+      font-size:0.95rem;
+      font-weight:800;
+      letter-spacing:1px;
+
+      margin-bottom:8px;
+    }
+
+    .card-content h3{
+      font-size:1.7rem;
+      margin-bottom:10px;
+    }
+
+    .card-content p{
+      opacity:0.88;
+      font-size:0.96rem;
     }
 
     /* ================= IMPACT ================= */
 
-    .impact-section {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-      flex-wrap: wrap;
+    .impact-section{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:60px;
+      flex-wrap:wrap;
     }
 
-    .impact-image {
-      width: 420px;
-      border-radius: 16px;
-      transition: 0.4s;
+    .impact-text{
+      flex:1;
+      min-width:280px;
     }
 
-    .impact-image:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 25px rgba(0,180,255,0.2);
+    .impact-image{
+      width:500px;
+      max-width:100%;
+
+      border-radius:22px;
+
+      transition:0.4s ease;
+    }
+
+    .impact-image:hover{
+      transform:scale(1.03);
+
+      box-shadow:
+        0 0 30px rgba(0,180,255,0.2);
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer{
+      text-align:center;
+      padding:90px 8%;
+
+      background:#05070d;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    footer p{
+      opacity:0.7;
+      margin-top:12px;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media(max-width:900px){
+
+      .hero h1{
+        font-size:2.4rem;
+      }
+
+      .timeline{
+        display:flex;
+        flex-direction:column;
+
+        overflow:visible;
+      }
+
+      .card{
+        width:100%;
+        height:380px;
+      }
+
+      .nav-links{
+        gap:16px;
+      }
+
+    }
+
+    @media(max-width:600px){
+
+      .navbar{
+        flex-direction:column;
+        gap:12px;
+      }
+
+      .hero{
+        padding-top:150px;
+      }
+
+      .hero h1{
+        font-size:2rem;
+      }
+
+      .hero p{
+        font-size:0.95rem;
+      }
+
+      h2{
+        font-size:1.8rem;
+      }
+
     }
 
   </style>
@@ -231,62 +407,208 @@
       <h1>Sustainability Through the Ages</h1>
 
       <p>
-        Explore Intel’s innovation journey from early microprocessors
-        to modern sustainability leadership.
+        Explore Intel’s evolution from groundbreaking processors
+        to modern sustainability innovation and AI leadership.
       </p>
 
-      <a class="hero-btn" href="#timeline">Explore Timeline</a>
+      <a class="hero-btn" href="#timeline">
+        Explore Timeline
+      </a>
 
     </div>
 
   </header>
 
   <!-- TIMELINE -->
-  <section id="timeline">
+  <section class="timeline-section" id="timeline">
 
     <h2>Innovation Timeline</h2>
 
-    <p style="opacity:0.7; margin-bottom:20px;">
-      Scroll horizontally (Scroll Snap enabled) to explore milestones.
+    <p class="timeline-subtext">
+      Scroll horizontally on desktop and hover over each card
+      to reveal Intel’s milestones.
     </p>
 
     <div class="timeline">
 
-      <!-- AI IMAGE NOTE INCLUDED -->
+      <!-- 1968 -->
       <div class="card">
-        <img src="img/1968-ai.jpg" alt="AI generated Intel founding">
+
+        <img src="img/1968-ai.jpg" alt="Intel founded">
+
         <div class="card-content">
+
           <span class="year">1968</span>
+
           <h3>Intel Founded</h3>
-          <p>Intel begins its journey in semiconductor innovation.</p>
+
+          <p>
+            Robert Noyce and Gordon Moore launch Intel,
+            beginning a revolution in semiconductor technology.
+          </p>
+
         </div>
+
       </div>
 
+      <!-- 1971 -->
       <div class="card">
-        <img src="img/1971-ai.jpg" alt="AI Intel 4004 chip">
+
+        <img src="img/1971-ai.jpg" alt="Intel 4004">
+
         <div class="card-content">
+
           <span class="year">1971</span>
-          <h3>First Microprocessor</h3>
-          <p>The Intel 4004 introduces computing on a single chip.</p>
+
+          <h3>Intel 4004</h3>
+
+          <p>
+            Intel unveils the world’s first commercial
+            microprocessor on a single chip.
+          </p>
+
         </div>
+
       </div>
 
+      <!-- 1978 -->
       <div class="card">
-        <img src="img/1978-ai.jpg" alt="AI Intel 8086">
+
+        <img src="img/1978-ai.jpg" alt="Intel 8086">
+
         <div class="card-content">
+
           <span class="year">1978</span>
+
           <h3>8086 Processor</h3>
-          <p>Defines the x86 architecture still used today.</p>
+
+          <p>
+            The x86 architecture is introduced and becomes
+            the foundation of modern computing.
+          </p>
+
         </div>
+
       </div>
 
+      <!-- 1985 -->
       <div class="card">
-        <img src="img/1985-ai.jpg" alt="AI Intel 386">
+
+        <img src="img/1985-ai.jpg" alt="Intel 386">
+
         <div class="card-content">
+
           <span class="year">1985</span>
-          <h3>386 Processor</h3>
-          <p>Introduces 32-bit computing and multitasking.</p>
+
+          <h3>Intel 386</h3>
+
+          <p>
+            Intel launches 32-bit processing, changing
+            multitasking and PC performance forever.
+          </p>
+
         </div>
+
+      </div>
+
+      <!-- 2006 -->
+      <div class="card">
+
+        <img src="img/2006-ai.jpg" alt="Intel Core">
+
+        <div class="card-content">
+
+          <span class="year">2006</span>
+
+          <h3>Intel Core Era</h3>
+
+          <p>
+            Intel introduces the Core processor family,
+            emphasizing performance and energy efficiency.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- 2020 -->
+      <div class="card">
+
+        <img src="img/2020-ai.jpg" alt="AI sustainability">
+
+        <div class="card-content">
+
+          <span class="year">2020</span>
+
+          <h3>Sustainability Goals</h3>
+
+          <p>
+            Intel expands renewable energy investments
+            and commits to reducing environmental impact.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- 2022 -->
+      <div class="card">
+
+        <img src="img/2022-ai.jpg" alt="AI manufacturing">
+
+        <div class="card-content">
+
+          <span class="year">2022</span>
+
+          <h3>Advanced Manufacturing</h3>
+
+          <p>
+            Intel advances sustainable chip manufacturing
+            and expands global fabrication initiatives.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- 2023 -->
+      <div class="card">
+
+        <img src="img/2023-ai.jpg" alt="AI future computing">
+
+        <div class="card-content">
+
+          <span class="year">2023</span>
+
+          <h3>AI Innovation</h3>
+
+          <p>
+            Intel accelerates AI technologies focused on
+            performance, efficiency, and responsible computing.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- 2024 -->
+      <div class="card">
+
+        <img src="img/2024-ai.jpg" alt="Intel future">
+
+        <div class="card-content">
+
+          <span class="year">2024</span>
+
+          <h3>The Future Forward</h3>
+
+          <p>
+            Intel continues building next-generation
+            sustainable technologies powered by AI.
+          </p>
+
+        </div>
+
       </div>
 
     </div>
@@ -296,14 +618,27 @@
   <!-- IMPACT -->
   <section id="impact">
 
-    <div>
-      <h2>Innovation With Impact</h2>
-      <p>
-        Intel continues investing in renewable energy and sustainable manufacturing.
-      </p>
-    </div>
+    <div class="impact-section">
 
-    <img class="impact-image" src="img/2024-ai.jpg" alt="Intel sustainability">
+      <div class="impact-text">
+
+        <h2>Innovation With Impact</h2>
+
+        <p>
+          Intel continues investing in renewable energy,
+          responsible manufacturing, and efficient AI systems
+          designed for a more sustainable future.
+        </p>
+
+      </div>
+
+      <img
+        class="impact-image"
+        src="img/2024-ai.jpg"
+        alt="Intel sustainability future"
+      >
+
+    </div>
 
   </section>
 
@@ -311,7 +646,10 @@
   <footer id="future">
 
     <h2>The Future Starts Here</h2>
-    <p>Building a more sustainable future through technology.</p>
+
+    <p>
+      Building a smarter and more sustainable world through technology.
+    </p>
 
   </footer>
 
