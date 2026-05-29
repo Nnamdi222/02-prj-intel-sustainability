@@ -13,376 +13,14 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body{
-      font-family:"Inter",sans-serif;
-      background:
-        radial-gradient(circle at top,#11203f 0%,#05070d 70%);
-      color:white;
-      overflow-x:hidden;
-    }
-
-    section{
-      padding:80px 8%;
-    }
-
-    h2{
-      font-size:2.2rem;
-      margin-bottom:14px;
-    }
-
-    p{
-      line-height:1.7;
-    }
-
-    /* ================= NAVBAR ================= */
-
-    .navbar{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      z-index:1000;
-
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-
-      padding:14px 8%;
-
-      background:rgba(8,12,22,0.75);
-      backdrop-filter:blur(18px);
-
-      border-bottom:1px solid rgba(255,255,255,0.08);
-    }
-
-    .nav-logo img{
-      width:95px;
-      display:block;
-    }
-
-    .nav-links{
-      display:flex;
-      gap:30px;
-      list-style:none;
-    }
-
-    .nav-links a{
-      color:rgba(255,255,255,0.8);
-      text-decoration:none;
-      font-weight:500;
-      transition:0.3s ease;
-    }
-
-    .nav-links a:hover{
-      color:#7fd4ff;
-    }
-
-    /* ================= HERO ================= */
-
-    .hero{
-      min-height:90vh;
-
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-
-      padding-top:100px;
-
-      background:
-        linear-gradient(rgba(5,7,13,0.45),rgba(5,7,13,0.8)),
-        url("img/2024-ai.jpg") center/cover no-repeat;
-    }
-
-    .hero-content{
-      max-width:760px;
-    }
-
-    .hero-logo{
-      width:130px;
-      margin-bottom:20px;
-    }
-
-    .hero h1{
-      font-size:3.5rem;
-      margin-bottom:18px;
-    }
-
-    .hero p{
-      opacity:0.82;
-      margin-bottom:24px;
-      font-size:1.05rem;
-    }
-
-    .hero-btn{
-      display:inline-block;
-
-      padding:14px 28px;
-
-      border-radius:12px;
-
-      background:linear-gradient(90deg,#2b7cff,#00c2ff);
-
-      color:white;
-      text-decoration:none;
-      font-weight:700;
-
-      transition:0.35s ease;
-    }
-
-    .hero-btn:hover{
-      transform:translateY(-4px) scale(1.03);
-
-      box-shadow:
-        0 0 25px rgba(0,180,255,0.35);
-    }
-
-    /* ================= TIMELINE ================= */
-
-    .timeline-section{
-      position:relative;
-    }
-
-    .timeline-subtext{
-      opacity:0.7;
-      margin-bottom:30px;
-    }
-
-    .timeline{
-      display:grid;
-      grid-auto-flow:column;
-      grid-auto-columns:320px;
-
-      gap:26px;
-
-      overflow-x:auto;
-      overflow-y:hidden;
-
-      scroll-snap-type:x mandatory;
-
-      padding-bottom:20px;
-    }
-
-    .timeline::-webkit-scrollbar{
-      height:10px;
-    }
-
-    .timeline::-webkit-scrollbar-thumb{
-      background:#3d6cb3;
-      border-radius:20px;
-    }
-
-    .card{
-      position:relative;
-
-      height:470px;
-
-      border-radius:22px;
-
-      overflow:hidden;
-
-      scroll-snap-align:center;
-
-      cursor:pointer;
-
-      background:#111827;
-
-      transition:
-        transform 0.45s ease,
-        box-shadow 0.45s ease;
-    }
-
-    .card:hover{
-      transform:
-        translateY(-12px)
-        scale(1.03);
-
-      box-shadow:
-        0 0 30px rgba(0,170,255,0.25),
-        0 0 70px rgba(0,120,255,0.12);
-    }
-
-    .card img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-
-      transition:0.5s ease;
-    }
-
-    .card:hover img{
-      transform:scale(1.08);
-      filter:brightness(0.5);
-    }
-
-    /* HOVER REVEAL */
-
-    .card-content{
-      position:absolute;
-      inset:0;
-
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-
-      padding:28px;
-
-      background:
-        linear-gradient(
-          to top,
-          rgba(0,0,0,0.95) 10%,
-          rgba(0,0,0,0.45) 45%,
-          transparent 100%
-        );
-
-      opacity:0;
-      transform:translateY(40px);
-
-      transition:
-        opacity 0.4s ease,
-        transform 0.4s ease;
-    }
-
-    .card:hover .card-content{
-      opacity:1;
-      transform:translateY(0);
-    }
-
-    .year{
-      color:#6fcfff;
-      font-size:0.95rem;
-      font-weight:800;
-      letter-spacing:1px;
-
-      margin-bottom:8px;
-    }
-
-    .card-content h3{
-      font-size:1.7rem;
-      margin-bottom:10px;
-    }
-
-    .card-content p{
-      opacity:0.88;
-      font-size:0.96rem;
-    }
-
-    /* ================= IMPACT ================= */
-
-    .impact-section{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:60px;
-      flex-wrap:wrap;
-    }
-
-    .impact-text{
-      flex:1;
-      min-width:280px;
-    }
-
-    .impact-image{
-      width:500px;
-      max-width:100%;
-
-      border-radius:22px;
-
-      transition:0.4s ease;
-    }
-
-    .impact-image:hover{
-      transform:scale(1.03);
-
-      box-shadow:
-        0 0 30px rgba(0,180,255,0.2);
-    }
-
-    /* ================= FOOTER ================= */
-
-    footer{
-      text-align:center;
-      padding:90px 8%;
-
-      background:#05070d;
-      border-top:1px solid rgba(255,255,255,0.08);
-    }
-
-    footer p{
-      opacity:0.7;
-      margin-top:12px;
-    }
-
-    /* ================= MOBILE ================= */
-
-    @media(max-width:900px){
-
-      .hero h1{
-        font-size:2.4rem;
-      }
-
-      .timeline{
-        display:flex;
-        flex-direction:column;
-
-        overflow:visible;
-      }
-
-      .card{
-        width:100%;
-        height:380px;
-      }
-
-      .nav-links{
-        gap:16px;
-      }
-
-    }
-
-    @media(max-width:600px){
-
-      .navbar{
-        flex-direction:column;
-        gap:12px;
-      }
-
-      .hero{
-        padding-top:150px;
-      }
-
-      .hero h1{
-        font-size:2rem;
-      }
-
-      .hero p{
-        font-size:0.95rem;
-      }
-
-      h2{
-        font-size:1.8rem;
-      }
-
-    }
-
-  </style>
+  <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+  <!-- ================= NAVBAR ================= -->
+
   <nav class="navbar">
 
     <div class="nav-logo">
@@ -390,25 +28,38 @@
     </div>
 
     <ul class="nav-links">
+
       <li><a href="#timeline">Timeline</a></li>
+
       <li><a href="#impact">Impact</a></li>
+
       <li><a href="#future">Future</a></li>
+
     </ul>
 
   </nav>
 
-  <!-- HERO -->
+  <!-- ================= HERO ================= -->
+
   <header class="hero">
+
+    <div class="hero-overlay"></div>
 
     <div class="hero-content">
 
-      <img class="hero-logo" src="img/intel-logo.jpg" alt="Intel Logo">
+      <img
+        class="hero-logo"
+        src="img/intel-logo.jpg"
+        alt="Intel Logo"
+      >
 
-      <h1>Sustainability Through the Ages</h1>
+      <h1>
+        Sustainability Through the Ages
+      </h1>
 
       <p>
-        Explore Intel’s evolution from groundbreaking processors
-        to modern sustainability innovation and AI leadership.
+        Explore Intel’s journey from the invention of the microprocessor
+        to modern breakthroughs in AI, sustainability, and advanced computing.
       </p>
 
       <a class="hero-btn" href="#timeline">
@@ -419,22 +70,67 @@
 
   </header>
 
-  <!-- TIMELINE -->
+  <!-- ================= STATS ================= -->
+
+  <section class="stats-section">
+
+    <div class="stat-card">
+
+      <h2>1968</h2>
+
+      <p>
+        Intel is founded and begins reshaping computing history.
+      </p>
+
+    </div>
+
+    <div class="stat-card">
+
+      <h2>x86</h2>
+
+      <p>
+        The architecture that powered generations of modern computers.
+      </p>
+
+    </div>
+
+    <div class="stat-card">
+
+      <h2>AI</h2>
+
+      <p>
+        Intel continues driving innovation in sustainable AI technologies.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ================= TIMELINE ================= -->
+
   <section class="timeline-section" id="timeline">
 
-    <h2>Innovation Timeline</h2>
+    <div class="section-heading">
 
-    <p class="timeline-subtext">
-      Scroll horizontally on desktop and hover over each card
-      to reveal Intel’s milestones.
-    </p>
+      <h2>Innovation Timeline</h2>
+
+      <p>
+        Scroll horizontally on larger screens and hover over each card
+        to reveal Intel’s biggest milestones.
+      </p>
+
+    </div>
 
     <div class="timeline">
 
       <!-- 1968 -->
+
       <div class="card">
 
-        <img src="img/1968-ai.jpg" alt="Intel founded">
+        <img
+          src="img/1968-ai.jpg"
+          alt="Intel founded"
+        >
 
         <div class="card-content">
 
@@ -443,8 +139,8 @@
           <h3>Intel Founded</h3>
 
           <p>
-            Robert Noyce and Gordon Moore launch Intel,
-            beginning a revolution in semiconductor technology.
+            Intel begins its journey in semiconductor innovation,
+            laying the foundation for modern computing.
           </p>
 
         </div>
@@ -452,9 +148,13 @@
       </div>
 
       <!-- 1971 -->
+
       <div class="card">
 
-        <img src="img/1971-ai.jpg" alt="Intel 4004">
+        <img
+          src="img/1971-ai.jpg"
+          alt="Intel 4004 processor"
+        >
 
         <div class="card-content">
 
@@ -463,8 +163,8 @@
           <h3>Intel 4004</h3>
 
           <p>
-            Intel unveils the world’s first commercial
-            microprocessor on a single chip.
+            Intel releases the world's first commercial microprocessor,
+            changing technology forever.
           </p>
 
         </div>
@@ -472,9 +172,13 @@
       </div>
 
       <!-- 1978 -->
+
       <div class="card">
 
-        <img src="img/1978-ai.jpg" alt="Intel 8086">
+        <img
+          src="img/1978-ai.jpg"
+          alt="Intel 8086"
+        >
 
         <div class="card-content">
 
@@ -483,8 +187,8 @@
           <h3>8086 Processor</h3>
 
           <p>
-            The x86 architecture is introduced and becomes
-            the foundation of modern computing.
+            The x86 architecture launches and becomes the standard
+            for generations of computers.
           </p>
 
         </div>
@@ -492,9 +196,13 @@
       </div>
 
       <!-- 1985 -->
+
       <div class="card">
 
-        <img src="img/1985-ai.jpg" alt="Intel 386">
+        <img
+          src="img/1985-ai.jpg"
+          alt="Intel 386"
+        >
 
         <div class="card-content">
 
@@ -503,8 +211,8 @@
           <h3>Intel 386</h3>
 
           <p>
-            Intel launches 32-bit processing, changing
-            multitasking and PC performance forever.
+            Intel introduces 32-bit processing and advances
+            multitasking performance.
           </p>
 
         </div>
@@ -512,19 +220,23 @@
       </div>
 
       <!-- 2006 -->
+
       <div class="card">
 
-        <img src="img/2006-ai.jpg" alt="Intel Core">
+        <img
+          src="img/2006-ai.jpg"
+          alt="Intel Core processors"
+        >
 
         <div class="card-content">
 
           <span class="year">2006</span>
 
-          <h3>Intel Core Era</h3>
+          <h3>Core Processors</h3>
 
           <p>
-            Intel introduces the Core processor family,
-            emphasizing performance and energy efficiency.
+            Intel launches the Core processor family focused on
+            speed, performance, and energy efficiency.
           </p>
 
         </div>
@@ -532,9 +244,13 @@
       </div>
 
       <!-- 2020 -->
+
       <div class="card">
 
-        <img src="img/2020-ai.jpg" alt="AI sustainability">
+        <img
+          src="img/2020-ai.jpg"
+          alt="Intel sustainability"
+        >
 
         <div class="card-content">
 
@@ -543,8 +259,8 @@
           <h3>Sustainability Goals</h3>
 
           <p>
-            Intel expands renewable energy investments
-            and commits to reducing environmental impact.
+            Intel increases renewable energy investments and
+            commits to reducing environmental impact.
           </p>
 
         </div>
@@ -552,9 +268,13 @@
       </div>
 
       <!-- 2022 -->
+
       <div class="card">
 
-        <img src="img/2022-ai.jpg" alt="AI manufacturing">
+        <img
+          src="img/2022-ai.jpg"
+          alt="Intel manufacturing"
+        >
 
         <div class="card-content">
 
@@ -563,8 +283,8 @@
           <h3>Advanced Manufacturing</h3>
 
           <p>
-            Intel advances sustainable chip manufacturing
-            and expands global fabrication initiatives.
+            Intel expands sustainable manufacturing and advances
+            next-generation semiconductor production.
           </p>
 
         </div>
@@ -572,9 +292,13 @@
       </div>
 
       <!-- 2023 -->
+
       <div class="card">
 
-        <img src="img/2023-ai.jpg" alt="AI future computing">
+        <img
+          src="img/2023-ai.jpg"
+          alt="Intel AI innovation"
+        >
 
         <div class="card-content">
 
@@ -583,8 +307,8 @@
           <h3>AI Innovation</h3>
 
           <p>
-            Intel accelerates AI technologies focused on
-            performance, efficiency, and responsible computing.
+            Intel accelerates AI development focused on efficiency,
+            performance, and responsible computing.
           </p>
 
         </div>
@@ -592,9 +316,13 @@
       </div>
 
       <!-- 2024 -->
+
       <div class="card">
 
-        <img src="img/2024-ai.jpg" alt="Intel future">
+        <img
+          src="img/2024-ai.jpg"
+          alt="Intel future technology"
+        >
 
         <div class="card-content">
 
@@ -603,8 +331,8 @@
           <h3>The Future Forward</h3>
 
           <p>
-            Intel continues building next-generation
-            sustainable technologies powered by AI.
+            Intel continues building a smarter and more sustainable
+            future powered by AI innovation.
           </p>
 
         </div>
@@ -615,40 +343,41 @@
 
   </section>
 
-  <!-- IMPACT -->
-  <section id="impact">
+  <!-- ================= IMPACT SECTION ================= -->
 
-    <div class="impact-section">
+  <section class="impact-section" id="impact">
 
-      <div class="impact-text">
+    <div class="impact-text">
 
-        <h2>Innovation With Impact</h2>
+      <h2>Innovation With Impact</h2>
 
-        <p>
-          Intel continues investing in renewable energy,
-          responsible manufacturing, and efficient AI systems
-          designed for a more sustainable future.
-        </p>
-
-      </div>
-
-      <img
-        class="impact-image"
-        src="img/2024-ai.jpg"
-        alt="Intel sustainability future"
-      >
+      <p>
+        Intel continues investing in renewable energy,
+        responsible manufacturing, and sustainable AI systems
+        designed for the future of technology.
+      </p>
 
     </div>
 
+    <img
+      class="impact-image"
+      src="img/2024-ai.jpg"
+      alt="Intel sustainability future"
+    >
+
   </section>
 
-  <!-- FOOTER -->
+  <!-- ================= FOOTER ================= -->
+
   <footer id="future">
 
-    <h2>The Future Starts Here</h2>
+    <h2>
+      The Future Starts Here
+    </h2>
 
     <p>
-      Building a smarter and more sustainable world through technology.
+      Building a more sustainable future through innovation,
+      AI, and advanced technology.
     </p>
 
   </footer>
